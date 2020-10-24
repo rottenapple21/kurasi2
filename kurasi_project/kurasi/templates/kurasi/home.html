@@ -1,0 +1,16 @@
+{% extends 'kurasi/base.html' %}
+{% block content %}
+    {% for input in inputs %}
+        <article class="media content-section">
+          <img class="rounded-circle article-img" src="{{ input.nama.profile.image.url }}">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ input.nama }}</a>
+              <small class="text-muted">{{ input.date_posted|date:"F d, Y"}}</small>
+            </div>
+            <h2><a class="article-title" href="{% url 'detail' input.id %}">{{ input.judul }}</a></h2>
+            <p class="article-content">{{ input.kategori }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
